@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+
+  web:
+    image: hardiklogicrays/docker_postgres:v1
+
+    container_name: website
+
+    ports:
+      - 8001:8000
+
+    command: >
+      sh -c "python3 manage.py makemigrations &&
+             python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8000"
+
+  db:
+    image: postgres
+    container_name: database
+
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres

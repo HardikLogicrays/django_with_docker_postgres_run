@@ -1,0 +1,36 @@
+pre-requiements
+    - docker-compose.yml file.
+
+
+
+step 1:
+    - create new folder.
+    - create virtual environment.
+    - activate virtual environment.
+    - paste docker-compose.yml file in this location.
+
+
+step 2:
+    - open terminal.
+    - run command: docker-compose up --build -d
+
+
+step 3:
+    - open new terminal window.
+    - run command: docker exec -it website python3 manage.py createsuperuser
+    - enter superuser name, email, password and confirm password then press "y".
+
+step 4:
+    - open google chrome.
+    - run this url http://127.0.0.1:8001/admin
+    - login in admin pannel using superuser cradentials.
+    - after login create new instance in student table.
+
+step 5:
+    - open new terminal window.
+    - run docker exec -it database psql -U postgres. [using this command you can go in postgres database]
+    - run \dt [show all the table in postgres database.]
+    - run SELECT * FROM docker_postgres_app_student; [using this commnad you can show all the records in docker_postgres_app_student table]
+
+step 6:
+    - create multiple instance from the admin pannel and show in postgres database.
